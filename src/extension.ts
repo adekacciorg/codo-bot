@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import ollama from 'ollama';
+import ChatPage from './chatPage/ChatPage';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -13,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 			{ enableScripts: true }
 		);
 
-		panel.webview.html = getWebviewHtml();
+		panel.webview.html = ChatPage();
 
 		console.log("Webview content fetched!");
 
@@ -49,59 +50,3 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() { }
-
-
-function getWebviewHtml() {
-	console.log("Hello world I am stuck here");
-	return /*html*/`<!DOCTYPE html>
-	<html lang="en">
-	
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
-			body {
-				margin: 1em;
-			}
-	
-			#prompt {
-				width: 100%;
-				box-sizing: border-box;
-			}
-	
-			#response {
-				border: 1px solid #ccc;
-				margin-top: 1em;
-				padding: 0.5em;
-			}
-		</style>
-
-	</head>
-	
-	<body>
-		<h2>Hello World</h2>
-		<textarea id="prompt" rows=3 placeholder="Ask Something..."></textarea> <br />
-		<button id="askBtn">Ask</button>
-		<div id="response"></div>
-
-
-		<script>
-			const vscode = acquireVsCodeApi();
-
-			document.getElementById('askBtn').addEventListener('click', () => {
-				const prompt = document.getElementById('prompt').value;
-				vscode.postMessage({ command: 'chat', text: prompt });
-			});
-
-			window.addEventListener('message', event => {
-				const {command, text} = event.data;
-				if (command === 'chatResponse') {
-					document.getElementById('response').innerText = text;
-				}
-			});
-		</script>
-		
-	</body>
-	
-	</html>`;
-}
