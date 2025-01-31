@@ -16,7 +16,7 @@ export default function ChatPage() {
 	<body>
 		<h2 class="text-5xl text-blue-100" >Codo Bot</h2>
 		<textarea id="prompt" class="" rows=3 placeholder="Ask Something..."></textarea> <br />
-		<button id="askBtn" class="text-3xl w-6" >Ask</button>
+		<button id="askBtn" class="text-3xl w-6 " >Ask</button>
 		<div id="response"></div>
 
 
