@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"moduleResolution": "node",
 		"esModuleInterop": true,
 	  "jsx": "react-jsx", // Enable JSX support
 	  "lib": ["es6", "dom"], // Include DOM types for React
