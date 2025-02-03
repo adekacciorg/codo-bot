@@ -1,8 +1,7 @@
 {
 	"compilerOptions": {
 		"esModuleInterop": true,
-	  "jsx": "react", // Enable JSX support
-	  "jsxFactory": "React.createElement", // Specify the JSX factory (React)
+	  "jsx": "react-jsx", // Enable JSX support
 	  "lib": ["es6", "dom"], // Include DOM types for React
 	  "module": "commonjs",
 	  "target": "es6",
